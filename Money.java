@@ -57,7 +57,7 @@ public class Money
 @return The difference between the calling Money
     object and the parameter Money object.
 */
-    public Money subtract (Money amount)
+    public Money subtract(Money amount)
     {
         Money difference = new Money(0);
         if (this.cents < amount.cents)
@@ -105,13 +105,13 @@ public class Money
                 cents == anotherMoney.cents;
     }
 // Document and write a toString method
-    public String ToString()
+    public String toString()
     {
         if (cents < 10) {
-            return String.format("%d.0%d", dollars, cents);
+            return String.format("%d.0%d", dollars, cents);//When the number of cents is less than 10.
         }
         else {
-            return String.format("%d.%d", dollars, cents);
+            return String.format("%d.%d", dollars, cents);//When the number of cents is greater than 10.
         }
     }
 }

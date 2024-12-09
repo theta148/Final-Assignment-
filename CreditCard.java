@@ -1,7 +1,7 @@
 public class CreditCard
 {
-    private Person owner;
-    private Money balance;
+    private Person owner;// The owner of the bank account.
+    private Money balance;//
     private Money creditLimit;
 
     public CreditCard(Person owner, Money creditLimit)
@@ -11,26 +11,34 @@ public class CreditCard
         this.balance = new Money(0.00);
     }
 
-    public getBalance()
+    public Money getBalance()
     {
         return balance;
     }
 
-    public getCreditLimit()
+    public Money getCreditLimit()
     {
         return creditLimit;
     }
 
-    public getPersonals()
+    public String getPersonals()
     {
         return owner.toString();
     }
 
-    public charge(Money amount)
+    public void charge(Money amount)
     {
-        if (balance == creditLimit)
+        if (amount.compareTo(creditLimit) == -1 || amount.compareTo(creditLimit) == 0)
         {
-
+            balance.add(amount);
         }
+        else {
+            System.out.println("Exceeds credit limit.");
+        }
+    }
+
+    public void payment(Money amount)
+    {
+        balance.subtract(amount);
     }
 }
